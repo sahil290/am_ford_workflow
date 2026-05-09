@@ -94,15 +94,15 @@ export function InsightsView({ snapshot, onStageClick, onSettingsClick }: Insigh
 
         <div className="bg-[#1A1C1E] rounded-2xl p-6 shadow-2xl transition-transform hover:scale-105 duration-300">
           <div className="flex items-center gap-3 mb-3">
-            <div className="p-2 bg-[#FF5252]/20 rounded-xl">
-              <AlertTriangle className="w-5 h-5 text-[#FF5252]" />
+            <div className="p-2 bg-[#D4325C]/20 rounded-xl">
+              <AlertTriangle className="w-5 h-5 text-[#D4325C]" />
             </div>
             <span className="text-[10px] font-black text-white/40 uppercase tracking-[0.2em]">Blocked Value</span>
           </div>
           <div className="text-3xl font-black text-white">
             ${snapshot.kpis.find(k => k.code === 'active')?.value === '0' ? '0' : '14.2k'}
           </div>
-          <div className="text-[9px] text-[#FF5252] font-black mt-2 uppercase tracking-widest">
+          <div className="text-[9px] text-[#D4325C] font-black mt-2 uppercase tracking-widest">
             {snapshot.kpis.find(k => k.code === 'active')?.value === '0' ? 'NO BLOCKED ASSETS' : 'LOCKED IN WORKFLOW'}
           </div>
         </div>
@@ -114,9 +114,9 @@ export function InsightsView({ snapshot, onStageClick, onSettingsClick }: Insigh
           <div className="flex items-center justify-between mb-10">
             <div>
               <h2 className="text-2xl font-black text-[#1A1C1E] uppercase tracking-tight">Top Bottlenecks</h2>
-              <p className="text-[10px] text-[#FF5252] font-black uppercase tracking-[0.3em] mt-1">VARIANCE ANALYSIS (ACTUAL VS TARGET)</p>
+              <p className="text-[10px] text-[#D4325C] font-black uppercase tracking-[0.3em] mt-1">VARIANCE ANALYSIS (ACTUAL VS TARGET)</p>
             </div>
-            <AlertTriangle className="w-8 h-8 text-[#FF5252] animate-pulse" />
+            <AlertTriangle className="w-8 h-8 text-[#D4325C] animate-pulse" />
           </div>
 
           <div className="space-y-6">
@@ -128,20 +128,20 @@ export function InsightsView({ snapshot, onStageClick, onSettingsClick }: Insigh
                     {b.vehicleCount > 0 && (
                       <button 
                         onClick={() => onStageClick?.(b.raw)}
-                        className="px-3 py-1 bg-[#FF5252] rounded-lg text-[9px] font-black text-white hover:bg-[#1A1C1E] transition-all shadow-lg shadow-[#FF5252]/20"
+                        className="px-3 py-1 bg-[#D4325C] rounded-lg text-[9px] font-black text-white hover:bg-[#1A1C1E] transition-all shadow-lg shadow-[#D4325C]/20"
                       >
                         {b.vehicleCount} UNITS STUCK
                       </button>
                     )}
                   </div>
                   <div className="text-right flex flex-col items-end">
-                    <span className="text-xs font-black text-[#FF5252]">{b.actual.toFixed(1)}h</span>
+                    <span className="text-xs font-black text-[#D4325C]">{b.actual.toFixed(1)}h</span>
                     <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest mt-0.5">{b.target.toFixed(1)}H TARGET</span>
                   </div>
                 </div>
                 <div className="h-4 bg-white/20 rounded-full overflow-hidden flex items-center shadow-inner border border-white/20">
                   <div 
-                    className="h-full bg-gradient-to-r from-[#FF5252]/50 to-[#FF5252] rounded-full transition-all duration-1000 shadow-[0_0_20px_rgba(255,82,82,0.4)]" 
+                    className="h-full bg-gradient-to-r from-[#D4325C]/50 to-[#D4325C] rounded-full transition-all duration-1000 shadow-[0_0_20px_rgba(255,82,82,0.4)]" 
                     style={{ width: `${b.percentage}%` }}
                   />
                 </div>
@@ -204,7 +204,7 @@ export function InsightsView({ snapshot, onStageClick, onSettingsClick }: Insigh
                   <div className="h-2.5 bg-black/5 rounded-full overflow-hidden shadow-inner">
                     <div 
                       className={`h-full transition-all duration-1000 ${
-                        s.status === 'critical' ? 'bg-[#FF5252] shadow-[0_0_10px_rgba(255,82,82,0.4)]' : 
+                        s.status === 'critical' ? 'bg-[#D4325C] shadow-[0_0_10px_rgba(255,82,82,0.4)]' : 
                         s.status === 'watch' ? 'bg-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.4)]' : 'bg-[#10B981] shadow-[0_0_10px_rgba(16,185,129,0.4)]'
                       }`}
                       style={{ width: `${(s.activeUnits / s.capacity) * 100}%` }}
@@ -212,7 +212,7 @@ export function InsightsView({ snapshot, onStageClick, onSettingsClick }: Insigh
                   </div>
                 </div>
                 <div className={`px-4 py-1.5 rounded-xl text-[9px] font-black uppercase tracking-widest border transition-all ${
-                  s.status === 'critical' ? 'text-[#FF5252] bg-[#FF5252]/10 border-[#FF5252]/20' : 
+                  s.status === 'critical' ? 'text-[#D4325C] bg-[#D4325C]/10 border-[#D4325C]/20' : 
                   s.status === 'watch' ? 'text-yellow-600 bg-yellow-400/10 border-yellow-400/20' : 'text-[#10B981] bg-[#10B981]/10 border-[#10B981]/20'
                 }`}>
                   {s.status}
@@ -223,17 +223,17 @@ export function InsightsView({ snapshot, onStageClick, onSettingsClick }: Insigh
         </div>
 
         <div className="bg-[#1A1C1E] rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-2xl relative overflow-hidden group">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#FF5252]/10 to-transparent opacity-50" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#D4325C]/10 to-transparent opacity-50" />
           <div className="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center mb-8 border border-white/10 shadow-inner group-hover:scale-110 transition-transform duration-500 relative z-10">
-            <TrendingUp className="w-12 h-12 text-[#FF5252]" />
+            <TrendingUp className="w-12 h-12 text-[#D4325C]" />
           </div>
           <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-3 relative z-10">Optimization Hub</h3>
           <p className="text-[11px] text-gray-400 font-bold leading-relaxed mb-10 uppercase tracking-widest relative z-10 px-4">
-            Our AI detected a slowdown in <span className="text-[#FF5252] font-black">"{bottlenecks[0]?.label || "Workflow"}"</span>. Reducing TAT by 15 mins could increase daily throughput by <span className="text-white">{((bottlenecks[0]?.variance || 0) * 0.5 + 1).toFixed(1)} units</span>.
+            Our AI detected a slowdown in <span className="text-[#D4325C] font-black">"{bottlenecks[0]?.label || "Workflow"}"</span>. Reducing TAT by 15 mins could increase daily throughput by <span className="text-white">{((bottlenecks[0]?.variance || 0) * 0.5 + 1).toFixed(1)} units</span>.
           </p>
           <button 
             onClick={onSettingsClick}
-            className="w-full py-5 bg-[#FF5252] text-white rounded-2xl font-black text-[11px] uppercase tracking-[0.3em] hover:bg-white hover:text-[#1A1C1E] transition-all active:scale-95 shadow-[0_20px_40px_-10px_rgba(255,82,82,0.4)] relative z-10"
+            className="w-full py-5 bg-[#D4325C] text-white rounded-2xl font-black text-[11px] uppercase tracking-[0.3em] hover:bg-white hover:text-[#1A1C1E] transition-all active:scale-95 shadow-[0_20px_40px_-10px_rgba(255,82,82,0.4)] relative z-10"
           >
             Optimize Settings
           </button>

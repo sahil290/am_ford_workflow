@@ -261,7 +261,7 @@ export function ControlTowerScreen({ snapshot: initialSnapshot, initialViewMode 
 
             <div className="glass-morphism rounded-2xl px-8 py-3 text-center min-w-[180px] shadow-lg border-white/40">
               <div className="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] mb-1">Avg Cycle Time</div>
-              <div className="text-xl font-black text-[#FF5252] uppercase tracking-tighter">
+              <div className="text-xl font-black text-[#D4325C] uppercase tracking-tighter">
                 {snapshot.kpis.find(k => k.code === 'cycle')?.value || "0.0d"}
               </div>
             </div>
@@ -570,7 +570,7 @@ function StageRow({
       <div
         onClick={onInfoClick}
         className={`group relative flex items-center px-8 py-3 rounded-2xl transition-all duration-500 cursor-pointer border shadow-xl ${isExpanded
-          ? "bg-[#FF5252] border-[#FF5252]/20 shadow-[0_20px_50px_rgba(255,82,82,0.4)] scale-[1.02] z-10"
+          ? "bg-[#D4325C] border-[#D4325C]/20 shadow-[0_20px_50px_rgba(255,82,82,0.4)] scale-[1.02] z-10"
           : "glass-morphism hover:bg-white/60 hover:border-white/80 hover:-translate-y-0.5"
           }`}
       >
@@ -613,7 +613,7 @@ function StageRow({
           <div className="absolute bottom-0 left-0 right-0 h-[4px] bg-black/5 rounded-b-2xl overflow-hidden">
             <div 
               className={`h-full transition-all duration-1000 ${isWarning 
-                ? 'bg-[#FF5252] shadow-[0_0_12px_rgba(255,82,82,0.8)]' 
+                ? 'bg-[#D4325C] shadow-[0_0_12px_rgba(255,82,82,0.8)]' 
                 : 'bg-[#10B981]'}`}
               style={{ width: `${Math.min(100, (row.avgHours / row.targetHours) * 100)}%` }}
             />
@@ -624,7 +624,7 @@ function StageRow({
       {/* Dropdown Tagline */}
       <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isExpanded ? 'max-h-24 opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="px-10 py-4 flex justify-center items-center">
-          <p className="text-[11px] font-black text-[#FF5252] uppercase tracking-[0.5em] text-center animate-in fade-in slide-in-from-top-2 duration-700">
+          <p className="text-[11px] font-black text-[#D4325C] uppercase tracking-[0.5em] text-center animate-in fade-in slide-in-from-top-2 duration-700">
             {taglines[row.code] || "Standard workflow stage protocol."}
           </p>
         </div>
@@ -864,11 +864,11 @@ function VehicleListPopup({
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-2xl font-black text-[#1A1C1E] tracking-tight uppercase leading-none">{stage.label}</h2>
-              <p className="text-[#FF5252] font-black mt-2 uppercase tracking-[0.3em] text-[9px]">{stage.vehicles} UNITS CURRENTLY IN STAGE</p>
+              <p className="text-[#D4325C] font-black mt-2 uppercase tracking-[0.3em] text-[9px]">{stage.vehicles} UNITS CURRENTLY IN STAGE</p>
             </div>
             <button 
               onClick={onClose}
-              className="w-10 h-10 border border-gray-100 rounded-xl flex items-center justify-center hover:bg-[#FF5252] hover:text-white transition-all active:scale-90 shadow-sm"
+              className="w-10 h-10 border border-gray-100 rounded-xl flex items-center justify-center hover:bg-[#D4325C] hover:text-white transition-all active:scale-90 shadow-sm"
             >
               <X className="w-5 h-5" />
             </button>
@@ -876,13 +876,13 @@ function VehicleListPopup({
 
           {/* Per-Stage Search Bar */}
           <div className="relative group">
-            <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 group-focus-within:text-[#FF5252] transition-colors" />
+            <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 group-focus-within:text-[#D4325C] transition-colors" />
             <input 
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={`SEARCH WITHIN ${stage.label.toUpperCase()}...`}
-              className="w-full bg-gray-50 border border-gray-100 rounded-2xl pl-12 pr-6 py-4 text-xs font-black text-[#1A1C1E] outline-none focus:ring-4 focus:ring-[#FF5252]/5 focus:border-[#FF5252]/30 transition-all placeholder:text-gray-400 shadow-inner uppercase tracking-widest"
+              className="w-full bg-gray-50 border border-gray-100 rounded-2xl pl-12 pr-6 py-4 text-xs font-black text-[#1A1C1E] outline-none focus:ring-4 focus:ring-[#D4325C]/5 focus:border-[#D4325C]/30 transition-all placeholder:text-gray-400 shadow-inner uppercase tracking-widest"
             />
           </div>
         </div>
@@ -891,7 +891,7 @@ function VehicleListPopup({
         <div className="flex-1 overflow-y-auto p-10 bg-white custom-scrollbar space-y-6">
           {isLoading ? (
             <div className="flex flex-col items-center justify-center py-20 gap-4">
-              <div className="w-12 h-12 border-4 border-[#FF5252]/20 border-t-[#FF5252] rounded-full animate-spin" />
+              <div className="w-12 h-12 border-4 border-[#D4325C]/20 border-t-[#D4325C] rounded-full animate-spin" />
               <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest">Retrieving Workflow Data...</p>
             </div>
           ) : filteredVehicles.length > 0 ? (
@@ -904,16 +904,16 @@ function VehicleListPopup({
                   <div
                     onClick={() => setExpandedVehicleId(isExpanded ? null : v.id)}
                     className={`glass-card rounded-2xl p-5 flex items-center justify-between transition-all cursor-pointer border-white/60 ${isExpanded
-                      ? "bg-white/70 ring-2 ring-[#FF5252]/30 shadow-2xl scale-[1.01]"
+                      ? "bg-white/70 ring-2 ring-[#D4325C]/30 shadow-2xl scale-[1.01]"
                       : "hover:bg-white/60"
                       }`}
                   >
                     <div className="flex items-center gap-6">
-                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all shadow-inner ${isExpanded ? "bg-[#FF5252] text-white" : "bg-[#00142E] text-white"}`}>
+                      <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all shadow-inner ${isExpanded ? "bg-[#D4325C] text-white" : "bg-[#00142E] text-white"}`}>
                         <span className="text-xs font-black tracking-tighter">#{v.stock_number.slice(-4)}</span>
                       </div>
                       <div>
-                        <div className={`text-base font-black transition-colors ${isExpanded ? "text-[#FF5252]" : "text-[#1A1C1E]"}`}>{v.vehicle_label}</div>
+                        <div className={`text-base font-black transition-colors ${isExpanded ? "text-[#D4325C]" : "text-[#1A1C1E]"}`}>{v.vehicle_label}</div>
                         <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-1">IDENTIFIER: <span className="text-[#1A1C1E]">{v.vin}</span></div>
                       </div>
                     </div>
@@ -928,12 +928,12 @@ function VehicleListPopup({
                       </button>
 
                       <div className="text-right min-w-[100px]">
-                        <div className={`text-sm font-black transition-colors ${v.is_delayed ? "text-[#FF5252]" : "text-blue-600"}`}>
+                        <div className={`text-sm font-black transition-colors ${v.is_delayed ? "text-[#D4325C]" : "text-blue-600"}`}>
                           {v.formatted_age}
                         </div>
                         <div className="text-[9px] font-black uppercase tracking-[0.2em] mt-1">
                           {v.is_delayed ? (
-                            <span className="text-[#FF5252] animate-pulse">SLA BREACHED</span>
+                            <span className="text-[#D4325C] animate-pulse">SLA BREACHED</span>
                           ) : <span className="text-gray-400">STAGE TIME</span>}
                         </div>
                       </div>
@@ -942,7 +942,7 @@ function VehicleListPopup({
                         <button
                           onClick={(e) => { e.stopPropagation(); handleMoveStage(v); }}
                           className={`px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] transition-all shadow-lg active:scale-95 ${isExpanded
-                            ? "bg-[#FF5252] text-white hover:bg-[#ff3b3b]"
+                            ? "bg-[#D4325C] text-white hover:bg-[#ff3b3b]"
                             : "bg-[#1A1C1E] text-white hover:bg-[#2a3b4f]"
                             }`}
                         >
@@ -961,13 +961,13 @@ function VehicleListPopup({
                     <div className="glass-morphism rounded-2xl p-8 mx-4 border-white/30 shadow-inner animate-in slide-in-from-top-4 duration-500">
                       <div className="grid grid-cols-2 gap-12">
                         <div>
-                          <label className="text-[10px] font-black text-[#FF5252] uppercase tracking-[0.4em] block mb-5">Workflow Operations Log</label>
+                          <label className="text-[10px] font-black text-[#D4325C] uppercase tracking-[0.4em] block mb-5">Workflow Operations Log</label>
                           <div className="space-y-3">
                             {v.authorization_data ? (
                               v.authorization_data.map((item: any, idx: number) => (
                                 <div key={idx} className="flex items-center justify-between text-[11px] font-bold bg-white/30 backdrop-blur-md p-4 rounded-xl border border-white/40 shadow-sm transition-all hover:bg-white/50">
                                   <span className="text-[#1A1C1E] uppercase tracking-tight">{item.description}</span>
-                                  <span className={`px-3 py-1 rounded-lg ${item.status === 'approved' ? 'bg-[#10B981]/10 text-[#10B981]' : 'bg-[#FF5252]/10 text-[#FF5252]'}`}>
+                                  <span className={`px-3 py-1 rounded-lg ${item.status === 'approved' ? 'bg-[#10B981]/10 text-[#10B981]' : 'bg-[#D4325C]/10 text-[#D4325C]'}`}>
                                     {item.status === 'approved' ? `$${(item.finalCost || item.cost).toLocaleString()}` : 'DECLINED'}
                                   </span>
                                 </div>
@@ -978,7 +978,7 @@ function VehicleListPopup({
                           </div>
                         </div>
                         <div>
-                          <label className="text-[10px] font-black text-[#FF5252] uppercase tracking-[0.4em] block mb-5">Command Intelligence</label>
+                          <label className="text-[10px] font-black text-[#D4325C] uppercase tracking-[0.4em] block mb-5">Command Intelligence</label>
                           {v.final_decision ? (
                             <div className="bg-white/30 backdrop-blur-md p-6 rounded-2xl border border-white/40 shadow-sm">
                               <div className="text-[10px] font-black text-[#1A1C1E] mb-3 uppercase tracking-widest flex items-center gap-2">

@@ -80,14 +80,14 @@ export function Sidebar({ isOpen, onClose, onSettingsClick, onNavigate, currentV
 
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 w-80 glass-morphism-dark border-r-0 z-[101] transform transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] rounded-none shadow-none ${isOpen ? 'translate-x-0 pointer-events-auto' : '-translate-x-full pointer-events-none'}`}
+        className={`fixed inset-y-0 left-0 w-80 bg-white border-r border-gray-100 z-[101] transform transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] rounded-none shadow-2xl ${isOpen ? 'translate-x-0 pointer-events-auto' : '-translate-x-full pointer-events-none'}`}
       >
-        <div className="flex flex-col h-full bg-[#1A1C1E]/40 backdrop-blur-3xl">
+        <div className="flex flex-col h-full bg-white">
           {/* Header */}
           <div className="pt-10 pb-8 px-6 flex items-center justify-start relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#FF5252]/5 to-transparent opacity-50" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#D4325C]/5 to-transparent opacity-50" />
             <div className="flex flex-col items-center gap-6 relative z-10 group w-full">
-              <div className="bg-white p-3.5 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-105 transition-all duration-500 border-white/40 shrink-0">
+              <div className="bg-white p-3.5 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-105 transition-all duration-500 border border-gray-100 shrink-0">
                 <img
                   src="https://di-uploads-pod45.dealerinspire.com/amford/uploads/2025/08/am-ford-mobile-logo.png"
                   className="h-10 w-auto"
@@ -95,23 +95,23 @@ export function Sidebar({ isOpen, onClose, onSettingsClick, onNavigate, currentV
                 />
               </div>
               <div className="flex flex-col items-center text-center">
-                <span className="text-white font-black tracking-[0.2em] text-xl uppercase group-hover:text-[#FF5252] transition-all duration-500 leading-none">User Management</span>
-                <span className="text-[9px] font-black text-[#FF5252] uppercase tracking-[0.5em] mt-3 opacity-80">Operations Unit</span>
+                <span className="text-[#1A1C1E] font-black tracking-[0.2em] text-xl uppercase group-hover:text-[#D4325C] transition-all duration-500 leading-none">User Management</span>
+                <span className="text-[9px] font-black text-[#D4325C] uppercase tracking-[0.5em] mt-3 opacity-80">Operations Unit</span>
               </div>
             </div>
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 space-y-3 overflow-y-auto custom-scrollbar">
+          <nav className="flex-1 space-y-8 overflow-y-auto custom-scrollbar">
 
-            <div className="px-3 space-y-1">
+            <div className="px-4 space-y-3">
               <button
                 onClick={() => setIsWorkshopOpen(!isWorkshopOpen)}
-                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all group relative overflow-hidden ${isWorkshopOpen ? 'bg-white/10 text-white shadow-lg border border-white/10' : 'text-white/50 hover:text-white hover:bg-white/5'}`}
+                className={`w-full flex items-center justify-between px-5 py-4 rounded-xl transition-all group relative overflow-hidden ${isWorkshopOpen ? 'bg-gray-50 text-[#1A1C1E] border border-gray-100' : 'text-gray-400 hover:text-[#1A1C1E] hover:bg-gray-50'}`}
               >
-                {isWorkshopOpen && <div className="absolute inset-0 bg-gradient-to-r from-[#FF5252]/10 to-transparent opacity-50" />}
+                {isWorkshopOpen && <div className="absolute inset-0 bg-gradient-to-r from-[#D4325C]/5 to-transparent opacity-50" />}
                 <div className="flex items-center gap-3 relative z-10">
-                  <Activity className={`w-4 h-4 ${isWorkshopOpen ? 'text-[#FF5252] animate-pulse' : 'text-white/40 group-hover:text-[#FF5252]'}`} />
+                  <Activity className={`w-4 h-4 ${isWorkshopOpen ? 'text-[#D4325C] animate-pulse' : 'text-gray-300 group-hover:text-[#D4325C]'}`} />
                   <span className="text-[10px] font-black uppercase tracking-[0.2em]">Fleet Management</span>
                 </div>
                 <div className="relative z-10">
@@ -120,7 +120,7 @@ export function Sidebar({ isOpen, onClose, onSettingsClick, onNavigate, currentV
               </button>
 
               {isWorkshopOpen && (
-                <div className="pl-3 space-y-1 mt-1 animate-in slide-in-from-top-2 duration-300">
+                <div className="pl-4 space-y-2 mt-2 animate-in slide-in-from-top-2 duration-300">
                   {workshopItems.map((item) => {
                     const active = isItemActive(item.href);
                     return (
@@ -128,12 +128,12 @@ export function Sidebar({ isOpen, onClose, onSettingsClick, onNavigate, currentV
                         key={item.label}
                         href={item.href}
                         onClick={onClose}
-                        className={`flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all group cursor-pointer relative overflow-hidden ${active
-                          ? 'bg-[#FF5252] text-white shadow-md'
-                          : 'text-white/40 hover:bg-white/5 hover:text-white'
+                        className={`flex items-center gap-3 px-5 py-3 rounded-xl transition-all group cursor-pointer relative overflow-hidden ${active
+                          ? 'bg-[#D4325C] text-white shadow-lg'
+                          : 'text-gray-500 hover:bg-gray-50 hover:text-[#1A1C1E]'
                           }`}
                       >
-                        <item.icon className={`w-3.5 h-3.5 ${active ? 'text-white' : 'text-white/40 group-hover:text-[#FF5252]'}`} />
+                        <item.icon className={`w-3.5 h-3.5 ${active ? 'text-white' : 'text-gray-400 group-hover:text-[#D4325C]'}`} />
                         <span className="text-[9px] font-black uppercase tracking-[0.2em]">{item.label}</span>
                       </Link>
                     );
@@ -142,9 +142,9 @@ export function Sidebar({ isOpen, onClose, onSettingsClick, onNavigate, currentV
               )}
             </div>
 
-            <div className="h-px bg-white/5 my-10 mx-2" />
+            <div className="h-px bg-gray-100 my-12 mx-4" />
 
-            <div className="px-3 mt-10 space-y-2">
+            <div className="px-4 space-y-3">
               {mainItems.map((item) => {
                 const active = isItemActive(item.href);
                 return (
@@ -152,12 +152,12 @@ export function Sidebar({ isOpen, onClose, onSettingsClick, onNavigate, currentV
                     key={item.label}
                     href={item.href}
                     onClick={onClose}
-                    className={`flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all group cursor-pointer relative overflow-hidden ${active
-                      ? 'bg-gradient-to-r from-[#FF5252] to-[#FF6B6B] text-white shadow-lg'
-                      : 'text-white/40 hover:bg-white/5 hover:text-white'
+                    className={`flex items-center gap-3 px-5 py-4 rounded-xl transition-all group cursor-pointer relative overflow-hidden ${active
+                      ? 'bg-gradient-to-r from-[#D4325C] to-[#E84D76] text-white shadow-lg'
+                      : 'text-gray-500 hover:bg-gray-50 hover:text-[#1A1C1E]'
                       }`}
                   >
-                    <item.icon className={`w-4 h-4 ${active ? 'text-white' : 'text-white/40 group-hover:text-[#FF5252]'}`} />
+                    <item.icon className={`w-4 h-4 ${active ? 'text-white' : 'text-gray-400 group-hover:text-[#D4325C]'}`} />
                     <span className="text-[10px] font-black uppercase tracking-[0.2em]">{item.label}</span>
                   </Link>
                 );
@@ -166,12 +166,12 @@ export function Sidebar({ isOpen, onClose, onSettingsClick, onNavigate, currentV
           </nav>
 
           {/* Footer */}
-          <div className="p-4 mt-auto border-t border-white/5">
+          <div className="p-6 mt-auto border-t border-gray-100">
             <button
               onClick={handleLogout}
-              className="flex items-center justify-center gap-3 px-4 py-3.5 w-full rounded-xl text-white bg-white/5 hover:bg-[#FF5252] transition-all group border border-white/10 shadow-sm active:scale-95"
+              className="flex items-center justify-center gap-3 px-5 py-4 w-full rounded-xl text-gray-700 bg-gray-50 hover:bg-[#D4325C] hover:text-white transition-all group border border-gray-100 shadow-sm active:scale-95"
             >
-              <LogOut className="w-4 h-4 transition-transform group-hover:-translate-x-1 text-[#FF5252] group-hover:text-white" />
+              <LogOut className="w-4 h-4 transition-transform group-hover:-translate-x-1 text-[#D4325C] group-hover:text-white" />
               <span className="text-[9px] font-black uppercase tracking-[0.3em]">Emergency Exit</span>
             </button>
           </div>

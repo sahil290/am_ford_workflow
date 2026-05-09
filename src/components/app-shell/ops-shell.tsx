@@ -29,21 +29,21 @@ export function OpsShell({ children }: OpsShellProps) {
       <div className="h-screen bg-[#F8F8F8] relative overflow-hidden flex items-center justify-center">
         {/* Background Accents */}
         <div className="absolute top-0 left-0 w-full h-full opacity-40 pointer-events-none">
-          <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#FF5252]/10 blur-[120px] rounded-full" />
+          <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-[#D4325C]/10 blur-[120px] rounded-full" />
           <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-500/5 blur-[120px] rounded-full" />
         </div>
         
         <div className="relative z-10 flex flex-col items-center gap-6">
           <div className="relative">
-            <div className="w-16 h-16 border-4 border-[#FF5252]/10 border-t-[#FF5252] rounded-full animate-spin shadow-[0_0_20px_rgba(255,82,82,0.2)]" />
+            <div className="w-16 h-16 border-4 border-[#D4325C]/10 border-t-[#D4325C] rounded-full animate-spin shadow-[0_0_20px_rgba(255,82,82,0.2)]" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-8 h-8 bg-white rounded-full shadow-lg" />
             </div>
           </div>
           <div className="flex flex-col items-center gap-2">
             <p className="text-[11px] font-black text-[#1A1C1E] uppercase tracking-[0.4em] animate-pulse">Initializing Interface</p>
-            <div className="h-[2px] w-12 bg-[#FF5252]/30 rounded-full overflow-hidden">
-              <div className="h-full bg-[#FF5252] w-1/2 animate-loading-slide" />
+            <div className="h-[2px] w-12 bg-[#D4325C]/30 rounded-full overflow-hidden">
+              <div className="h-full bg-[#D4325C] w-1/2 animate-loading-slide" />
             </div>
           </div>
         </div>

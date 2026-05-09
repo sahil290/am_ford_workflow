@@ -114,11 +114,11 @@ export function IntakeForm({ onSuccess, onCancel }: { onSuccess?: () => void, on
             onChange={handleInputChange}
             className={cn(
               "w-full command-input py-2 uppercase tracking-[0.2em]",
-              errors.stockNumber && "border-[#FF5252] bg-red-50"
+              errors.stockNumber && "border-[#D4325C] bg-red-50"
             )}
             placeholder="E.G. A25182"
           />
-          {errors.stockNumber && <p className="text-[8px] text-[#FF5252] ml-2 font-black uppercase tracking-widest">{errors.stockNumber}</p>}
+          {errors.stockNumber && <p className="text-[8px] text-[#D4325C] ml-2 font-black uppercase tracking-widest">{errors.stockNumber}</p>}
         </div>
 
         <div className="space-y-0.5">
@@ -130,7 +130,7 @@ export function IntakeForm({ onSuccess, onCancel }: { onSuccess?: () => void, on
             onChange={handleInputChange}
             className={cn(
               "w-full command-input py-2",
-              errors.year && "border-[#FF5252] bg-red-50"
+              errors.year && "border-[#D4325C] bg-red-50"
             )}
             placeholder="2024"
           />
@@ -170,7 +170,7 @@ export function IntakeForm({ onSuccess, onCancel }: { onSuccess?: () => void, on
             onChange={handleInputChange}
             className={cn(
               "w-full command-input py-2",
-              errors.model && "border-[#FF5252] bg-red-50"
+              errors.model && "border-[#D4325C] bg-red-50"
             )}
             placeholder="Explorer"
           />
@@ -246,7 +246,7 @@ export function IntakeForm({ onSuccess, onCancel }: { onSuccess?: () => void, on
           <button
             type="submit"
             disabled={isSubmitting}
-            className="bg-[#1A1C1E] hover:bg-[#FF5252] text-white rounded-lg px-10 py-3 font-black text-[9px] uppercase tracking-[0.2em] shadow-lg transition-all active:scale-[0.95] disabled:opacity-50"
+            className="bg-[#1A1C1E] hover:bg-[#D4325C] text-white rounded-lg px-10 py-3 font-black text-[9px] uppercase tracking-[0.2em] shadow-lg transition-all active:scale-[0.95] disabled:opacity-50"
           >
             {isSubmitting ? "SYNCING..." : "SUBMIT INTAKE"}
           </button>
@@ -271,11 +271,11 @@ export function IntakeModal({ isOpen, onClose, onSuccess }: IntakeModalProps) {
         <div className="p-5 border-b border-gray-100 flex items-center justify-between bg-white">
           <div>
             <h2 className="text-xl font-black text-[#1A1C1E] tracking-tight uppercase leading-none">Vehicle Intake</h2>
-            <p className="text-[8px] text-[#FF5252] mt-1.5 uppercase tracking-[0.2em] font-black leading-none">ENROLL ASSET</p>
+            <p className="text-[8px] text-[#D4325C] mt-1.5 uppercase tracking-[0.2em] font-black leading-none">ENROLL ASSET</p>
           </div>
           <button 
             onClick={onClose}
-            className="w-10 h-10 border border-gray-100 rounded-xl flex items-center justify-center hover:bg-[#FF5252] hover:text-white transition-all active:scale-90 shadow-sm"
+            className="w-10 h-10 border border-gray-100 rounded-xl flex items-center justify-center hover:bg-[#D4325C] hover:text-white transition-all active:scale-90 shadow-sm"
           >
             <X className="w-5 h-5" />
           </button>

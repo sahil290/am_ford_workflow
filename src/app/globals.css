@@ -12,13 +12,15 @@
   --bg-highlight: rgba(255, 255, 255, 0.5);
   --bg-gold: rgba(255, 107, 107, 0.1);
   --bg-gold-strong: rgba(255, 107, 107, 0.2);
+  --bg-gold: rgba(212, 50, 92, 0.1);
+  --bg-gold-strong: rgba(212, 50, 92, 0.2);
   --border-soft: rgba(255, 255, 255, 0.3);
   --border-strong: rgba(255, 255, 255, 0.5);
-  --border-gold: rgba(255, 107, 107, 0.3);
+  --border-gold: rgba(212, 50, 92, 0.3);
   --text-primary: #1A1C1E;
   --text-secondary: #4A4D50;
   --text-muted: #70757A;
-  --text-gold: #FF5252;
+  --text-gold: #D4325C;
   --accent: #00142E;
   --accent-strong: #000A1A;
   --healthy: #10B981;

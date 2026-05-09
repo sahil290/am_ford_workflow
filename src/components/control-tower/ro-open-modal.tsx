@@ -63,11 +63,11 @@ export function ROOpenModal({ isOpen, onClose, vehicle, onSuccess }: ROOpenModal
         <div className="px-8 py-6 border-b border-gray-100 flex items-center justify-between bg-white">
           <div>
             <h2 className="text-xl font-black text-[#1A1C1E] tracking-tight uppercase">Open Repair Order</h2>
-            <p className="text-[#FF5252] font-black mt-1 uppercase tracking-[0.2em] text-[8px]">INITIATE WORKFLOW PROTOCOL</p>
+            <p className="text-[#D4325C] font-black mt-1 uppercase tracking-[0.2em] text-[8px]">INITIATE WORKFLOW PROTOCOL</p>
           </div>
           <button 
             onClick={onClose}
-            className="w-10 h-10 border border-gray-100 rounded-xl flex items-center justify-center hover:bg-[#FF5252] hover:text-white transition-all active:scale-90 shadow-sm"
+            className="w-10 h-10 border border-gray-100 rounded-xl flex items-center justify-center hover:bg-[#D4325C] hover:text-white transition-all active:scale-90 shadow-sm"
           >
             <X className="w-5 h-5" />
           </button>
@@ -86,11 +86,11 @@ export function ROOpenModal({ isOpen, onClose, vehicle, onSuccess }: ROOpenModal
               }}
               className={cn(
                 "w-full command-input !text-xl !py-5 uppercase tracking-tighter",
-                error && "border-[#FF5252] bg-red-50"
+                error && "border-[#D4325C] bg-red-50"
               )}
               placeholder="ENTER RO NUMBER"
             />
-            {error && <p className="text-[9px] text-[#FF5252] ml-2 font-black uppercase tracking-widest animate-pulse">{error}</p>}
+            {error && <p className="text-[9px] text-[#D4325C] ml-2 font-black uppercase tracking-widest animate-pulse">{error}</p>}
           </div>
 
           {/* Key Tag */}
@@ -116,7 +116,7 @@ export function ROOpenModal({ isOpen, onClose, vehicle, onSuccess }: ROOpenModal
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-[#1A1C1E] hover:bg-[#FF5252] text-white rounded-2xl py-5 font-black text-xs uppercase tracking-[0.4em] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] transition-all active:scale-[0.98] disabled:opacity-50 mt-4 hover:shadow-[#FF5252]/20"
+            className="w-full bg-[#1A1C1E] hover:bg-[#D4325C] text-white rounded-2xl py-5 font-black text-xs uppercase tracking-[0.4em] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] transition-all active:scale-[0.98] disabled:opacity-50 mt-4 hover:shadow-[#D4325C]/20"
           >
             {isSubmitting ? "PROCESSING COMMAND..." : "CONFIRM STAGE ENTRY"}
           </button>

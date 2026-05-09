@@ -125,13 +125,13 @@ export default function AdminPage() {
                 <h1 className="text-4xl font-black tracking-tight uppercase text-[#1A1C1E] leading-none">
                   User Management
                 </h1>
-                <p className="text-[#FF5252] font-black mt-2 uppercase tracking-[0.3em] text-[10px]">
+                <p className="text-[#D4325C] font-black mt-2 uppercase tracking-[0.3em] text-[10px]">
                   MANAGE SYSTEM ACCESS & PROTOCOLS
                 </p>
               </div>
               <button 
                 onClick={() => setIsAddModalOpen(true)}
-                className="flex items-center gap-4 bg-[#1A1C1E] hover:bg-[#FF5252] text-white px-8 py-5 rounded-[2rem] font-black uppercase tracking-[0.3em] text-[11px] transition-all shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] active:scale-95"
+                className="flex items-center gap-4 bg-[#1A1C1E] hover:bg-[#D4325C] text-white px-8 py-5 rounded-[2rem] font-black uppercase tracking-[0.3em] text-[11px] transition-all shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] active:scale-95"
               >
                 <UserPlus className="w-5 h-5" />
                 Enroll New Staff
@@ -143,7 +143,7 @@ export default function AdminPage() {
               {[
                 { label: "Staff Strength", value: users.length, color: "text-blue-600" },
                 { label: "Active Roles", value: "3 Tiers", color: "text-[#10B981]" },
-                { label: "System Status", value: "Optimal", color: "text-[#FF5252]" }
+                { label: "System Status", value: "Optimal", color: "text-[#D4325C]" }
               ].map((stat, i) => (
                 <div key={i} className="glass-morphism border-white/40 rounded-[2rem] p-8 shadow-xl transition-transform hover:scale-105 duration-300">
                   <div className="text-[9px] font-black text-gray-500 uppercase tracking-[0.4em] mb-3">{stat.label}</div>
@@ -191,14 +191,14 @@ export default function AdminPage() {
                           </td>
                           <td className="px-10 py-8 font-bold text-sm text-gray-500">{user.email}</td>
                           <td className="px-10 py-8">
-                            <span className="px-4 py-1.5 bg-[#1A1C1E] text-white rounded-xl text-[9px] font-black uppercase tracking-[0.2em] shadow-lg group-hover:bg-[#FF5252] transition-all">
+                            <span className="px-4 py-1.5 bg-[#1A1C1E] text-white rounded-xl text-[9px] font-black uppercase tracking-[0.2em] shadow-lg group-hover:bg-[#D4325C] transition-all">
                               {user.role}
                             </span>
                           </td>
                           <td className="px-10 py-8 text-right">
                             <button 
                               onClick={() => handleDeleteUser(user.id)}
-                              className="w-10 h-10 glass-morphism border-red-200/50 flex items-center justify-center text-red-400 hover:bg-[#FF5252] hover:text-white transition-all shadow-sm active:scale-90"
+                              className="w-10 h-10 glass-morphism border-red-200/50 flex items-center justify-center text-red-400 hover:bg-[#D4325C] hover:text-white transition-all shadow-sm active:scale-90"
                             >
                               <Trash2 className="w-4 h-4" />
                             </button>
@@ -222,9 +222,9 @@ export default function AdminPage() {
             <div className="p-8 border-b border-white/20 bg-white/20 flex items-center justify-between">
               <div>
                 <h2 className="text-2xl font-black text-[#1A1C1E] tracking-tight uppercase leading-none">Personnel Enrollment</h2>
-                <p className="text-[#FF5252] font-black mt-2 uppercase tracking-[0.4em] text-[9px]">ENROLL NEW OPERATIVE INTO SYSTEM</p>
+                <p className="text-[#D4325C] font-black mt-2 uppercase tracking-[0.4em] text-[9px]">ENROLL NEW OPERATIVE INTO SYSTEM</p>
               </div>
-              <button onClick={() => setIsAddModalOpen(false)} className="w-12 h-12 glass-morphism rounded-2xl flex items-center justify-center hover:bg-[#FF5252] hover:text-white border-white/60 transition-all active:scale-90">
+              <button onClick={() => setIsAddModalOpen(false)} className="w-12 h-12 glass-morphism rounded-2xl flex items-center justify-center hover:bg-[#D4325C] hover:text-white border-white/60 transition-all active:scale-90">
                 <X className="w-6 h-6" />
               </button>
             </div>
@@ -288,13 +288,13 @@ export default function AdminPage() {
               <div className="flex gap-4 pt-4 border-t border-white/20">
                 <button 
                   type="button" onClick={() => setIsAddModalOpen(false)}
-                  className="flex-1 px-6 py-5 rounded-[1.5rem] text-[11px] font-black uppercase tracking-[0.4em] text-gray-400 hover:text-[#FF5252] glass-morphism transition-all active:scale-95"
+                  className="flex-1 px-6 py-5 rounded-[1.5rem] text-[11px] font-black uppercase tracking-[0.4em] text-gray-400 hover:text-[#D4325C] glass-morphism transition-all active:scale-95"
                 >
                   ABORT
                 </button>
                 <button 
                   type="submit"
-                  className="flex-2 px-12 py-5 rounded-[1.5rem] text-[11px] font-black uppercase tracking-[0.4em] text-white bg-[#1A1C1E] hover:bg-[#FF5252] shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-3"
+                  className="flex-2 px-12 py-5 rounded-[1.5rem] text-[11px] font-black uppercase tracking-[0.4em] text-white bg-[#1A1C1E] hover:bg-[#D4325C] shadow-2xl transition-all active:scale-95 flex items-center justify-center gap-3"
                 >
                   <UserPlus className="w-5 h-5" />
                   CONFIRM ENROLLMENT

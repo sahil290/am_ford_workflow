@@ -227,13 +227,13 @@ export function AuthorizationModal({ isOpen, onClose, vehicle, onSuccess }: Auth
             <h2 className="text-2xl font-black text-[#1A1C1E] tracking-tight uppercase leading-none">
               {isFinalizeMode ? "Command Authorization" : "Service Assessment"}
             </h2>
-            <p className="text-[#FF5252] font-black mt-2 uppercase tracking-[0.3em] text-[9px]">
+            <p className="text-[#D4325C] font-black mt-2 uppercase tracking-[0.3em] text-[9px]">
               {isFinalizeMode ? `FINALIZE DETERMINATION FOR ${vehicle.label}` : `INITIATE ESTIMATE PROTOCOL FOR ${vehicle.label}`}
             </p>
           </div>
           <button 
             onClick={onClose} 
-            className="w-10 h-10 border border-gray-100 rounded-xl flex items-center justify-center hover:bg-[#FF5252] hover:text-white transition-all active:scale-90 shadow-sm"
+            className="w-10 h-10 border border-gray-100 rounded-xl flex items-center justify-center hover:bg-[#D4325C] hover:text-white transition-all active:scale-90 shadow-sm"
           >
             <X className="w-5 h-5" />
           </button>
@@ -279,15 +279,15 @@ export function AuthorizationModal({ isOpen, onClose, vehicle, onSuccess }: Auth
             <div className="flex items-center gap-10 bg-gray-50 border border-gray-100 rounded-2xl p-5 justify-center shadow-inner">
               <label className="flex items-center gap-3 cursor-pointer group">
                 <div className="relative flex items-center justify-center">
-                  <input type="radio" checked={requiresSignOff} onChange={() => setRequiresSignOff(true)} className="w-6 h-6 rounded-full border-2 border-gray-300 appearance-none checked:border-[#FF5252] transition-all cursor-pointer" />
-                  {requiresSignOff && <div className="absolute w-3 h-3 bg-[#FF5252] rounded-full" />}
+                  <input type="radio" checked={requiresSignOff} onChange={() => setRequiresSignOff(true)} className="w-6 h-6 rounded-full border-2 border-gray-300 appearance-none checked:border-[#D4325C] transition-all cursor-pointer" />
+                  {requiresSignOff && <div className="absolute w-3 h-3 bg-[#D4325C] rounded-full" />}
                 </div>
                 <span className={cn("text-[11px] font-black uppercase tracking-[0.1em]", requiresSignOff ? "text-[#1A1C1E]" : "text-gray-400")}>Deep Inspection Protocol</span>
               </label>
               <label className="flex items-center gap-3 cursor-pointer group">
                 <div className="relative flex items-center justify-center">
-                  <input type="radio" checked={!requiresSignOff} onChange={() => setRequiresSignOff(false)} className="w-6 h-6 rounded-full border-2 border-gray-300 appearance-none checked:border-[#FF5252] transition-all cursor-pointer" />
-                  {!requiresSignOff && <div className="absolute w-3 h-3 bg-[#FF5252] rounded-full" />}
+                  <input type="radio" checked={!requiresSignOff} onChange={() => setRequiresSignOff(false)} className="w-6 h-6 rounded-full border-2 border-gray-300 appearance-none checked:border-[#D4325C] transition-all cursor-pointer" />
+                  {!requiresSignOff && <div className="absolute w-3 h-3 bg-[#D4325C] rounded-full" />}
                 </div>
                 <span className={cn("text-[11px] font-black uppercase tracking-[0.1em]", !requiresSignOff ? "text-[#1A1C1E]" : "text-gray-400")}>Rapid Estimate Sync</span>
               </label>
@@ -310,7 +310,7 @@ export function AuthorizationModal({ isOpen, onClose, vehicle, onSuccess }: Auth
                 <label className="text-[9px] font-black text-gray-500 uppercase tracking-[0.3em] ml-1">Aggregate Cost ($)</label>
                 <div className="bg-white border border-gray-200 rounded-3xl p-8 flex items-center h-[100px] shadow-lg relative overflow-hidden group">
                   <div className="absolute inset-0 bg-gray-50 opacity-100" />
-                  <span className="text-2xl font-black text-[#FF5252] mr-3 z-10">$</span>
+                  <span className="text-2xl font-black text-[#D4325C] mr-3 z-10">$</span>
                   <input 
                     type="text" 
                     value={totalCost} 
@@ -368,8 +368,8 @@ export function AuthorizationModal({ isOpen, onClose, vehicle, onSuccess }: Auth
                   <div className="col-span-2 space-y-1"><label className="text-[7px] font-black text-gray-600 uppercase">Code</label><input value={newItem.code} onChange={(e) => setNewItem({...newItem, code: e.target.value})} className="w-full command-input !py-2.5 !text-[10px]" placeholder="CODE" /></div>
                   <div className="col-span-4 space-y-1"><label className="text-[7px] font-black text-gray-600 uppercase">Description</label><input value={newItem.description} onChange={(e) => setNewItem({...newItem, description: e.target.value})} className="w-full command-input !py-2.5 !text-[10px]" placeholder="SERVICE DESCRIPTION" /></div>
                   <div className="col-span-2 space-y-1"><label className="text-[7px] font-black text-gray-600 uppercase">Pay Type</label><select value={newItem.payType} onChange={(e) => setNewItem({...newItem, payType: e.target.value})} className="w-full command-input !py-2.5 !text-[10px] appearance-none cursor-pointer"><option>Internal Pay</option><option>Customer Pay</option><option>Warranty</option></select></div>
-                  <div className="col-span-2 space-y-1"><label className="text-[7px] font-black text-gray-600 uppercase">Cost</label><div className="flex items-center bg-white border border-gray-200 rounded-xl px-3 h-[38px] shadow-sm"><span className="text-[10px] text-[#FF5252] font-black mr-1">$</span><input value={newItem.cost} onChange={(e) => setNewItem({...newItem, cost: e.target.value})} className="bg-transparent w-full text-[10px] font-black text-[#1A1C1E] outline-none placeholder:text-gray-300" placeholder="0.00" /></div></div>
-                  <div className="col-span-2"><button type="button" onClick={() => { if (!newItem.description) return; setLineItems([...lineItems, {...newItem, id: Math.random(), status: 'pending', remarks: '', finalCost: newItem.cost}]); setNewItem({ code: "", description: "", payType: "Internal Pay", cost: "" }); }} className="w-full h-[38px] bg-[#00142E] hover:bg-[#FF5252] text-white rounded-xl flex items-center justify-center transition-all shadow-lg"><Plus className="w-5 h-5" /></button></div>
+                  <div className="col-span-2 space-y-1"><label className="text-[7px] font-black text-gray-600 uppercase">Cost</label><div className="flex items-center bg-white border border-gray-200 rounded-xl px-3 h-[38px] shadow-sm"><span className="text-[10px] text-[#D4325C] font-black mr-1">$</span><input value={newItem.cost} onChange={(e) => setNewItem({...newItem, cost: e.target.value})} className="bg-transparent w-full text-[10px] font-black text-[#1A1C1E] outline-none placeholder:text-gray-300" placeholder="0.00" /></div></div>
+                  <div className="col-span-2"><button type="button" onClick={() => { if (!newItem.description) return; setLineItems([...lineItems, {...newItem, id: Math.random(), status: 'pending', remarks: '', finalCost: newItem.cost}]); setNewItem({ code: "", description: "", payType: "Internal Pay", cost: "" }); }} className="w-full h-[38px] bg-[#00142E] hover:bg-[#D4325C] text-white rounded-xl flex items-center justify-center transition-all shadow-lg"><Plus className="w-5 h-5" /></button></div>
                 </div>
               )}
 
@@ -392,7 +392,7 @@ export function AuthorizationModal({ isOpen, onClose, vehicle, onSuccess }: Auth
                         
                         {isFinalizeMode && (
                           <div className="flex items-center bg-gray-50 border border-gray-200 rounded-xl px-3 h-[42px] min-w-[100px] shadow-inner">
-                            <span className="text-[10px] text-[#FF5252] font-black mr-1">$</span>
+                            <span className="text-[10px] text-[#D4325C] font-black mr-1">$</span>
                             <input 
                               type="text" 
                               value={item.finalCost} 
@@ -440,14 +440,14 @@ export function AuthorizationModal({ isOpen, onClose, vehicle, onSuccess }: Auth
           {!isFinalizeMode && requiresSignOff && (
             <div className={cn(
               "relative h-28 rounded-2xl border-2 border-dashed transition-all group overflow-hidden",
-              isParsing ? "border-[#FF5252] bg-[#FF5252]/5" : "border-gray-200 bg-gray-50 hover:border-blue-500/40"
+              isParsing ? "border-[#D4325C] bg-[#D4325C]/5" : "border-gray-200 bg-gray-50 hover:border-blue-500/40"
             )}>
               {isParsing ? (
                 <div className="absolute inset-0 flex items-center justify-center gap-4 p-4 z-10">
-                  <div className="w-10 h-10 border-4 border-[#FF5252]/20 border-t-[#FF5252] rounded-full animate-spin" />
+                  <div className="w-10 h-10 border-4 border-[#D4325C]/20 border-t-[#D4325C] rounded-full animate-spin" />
                   <div className="text-left">
                     <span className="text-xs font-black text-[#1A1C1E] uppercase tracking-widest block">AI ANALYZING DOCUMENT...</span>
-                    <span className="text-[8px] text-[#FF5252] uppercase tracking-[0.2em] font-bold animate-pulse">EXTRACTING SERVICE CODES</span>
+                    <span className="text-[8px] text-[#D4325C] uppercase tracking-[0.2em] font-bold animate-pulse">EXTRACTING SERVICE CODES</span>
                   </div>
                 </div>
               ) : (
@@ -469,14 +469,14 @@ export function AuthorizationModal({ isOpen, onClose, vehicle, onSuccess }: Auth
         {/* Footer */}
         <div className="px-10 py-8 border-t border-white/20 bg-white/20 shrink-0 space-y-6">
           {error && (
-            <div className="bg-[#FF5252]/10 border border-[#FF5252]/20 rounded-2xl px-6 py-4 flex items-center gap-4 animate-in slide-in-from-bottom-4 duration-500">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#FF5252] animate-pulse shrink-0 shadow-[0_0_12px_rgba(255,82,82,0.5)]" />
-              <p className="text-[11px] font-black text-[#FF5252] uppercase tracking-[0.2em] leading-tight">{error}</p>
+            <div className="bg-[#D4325C]/10 border border-[#D4325C]/20 rounded-2xl px-6 py-4 flex items-center gap-4 animate-in slide-in-from-bottom-4 duration-500">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#D4325C] animate-pulse shrink-0 shadow-[0_0_12px_rgba(255,82,82,0.5)]" />
+              <p className="text-[11px] font-black text-[#D4325C] uppercase tracking-[0.2em] leading-tight">{error}</p>
             </div>
           )}
           <button 
             onClick={handleSubmit} disabled={isSubmitting || isParsing}
-            className="w-full bg-[#1A1C1E] hover:bg-[#FF5252] text-white font-black py-6 rounded-2xl uppercase tracking-[0.5em] text-xs shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] transition-all active:scale-[0.98] border border-white/10 hover:shadow-[#FF5252]/20"
+            className="w-full bg-[#1A1C1E] hover:bg-[#D4325C] text-white font-black py-6 rounded-2xl uppercase tracking-[0.5em] text-xs shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] transition-all active:scale-[0.98] border border-white/10 hover:shadow-[#D4325C]/20"
           >
             {isSubmitting ? "SYNCING DATA..." : (isFinalizeMode ? "FINALIZE DETERMINATION" : "EXECUTE APPROVAL REQUEST")}
           </button>

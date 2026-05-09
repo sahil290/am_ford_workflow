@@ -33,7 +33,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <NextTopLoader 
-          color="#FF5252"
+          color="#D4325C"
           initialPosition={0.08}
           crawlSpeed={200}
           height={3}
@@ -41,7 +41,7 @@ export default function RootLayout({
           showSpinner={false}
           easing="ease"
           speed={200}
-          shadow="0 0 10px #FF5252,0 0 5px #FF5252"
+          shadow="0 0 10px #D4325C,0 0 5px #D4325C"
         />
         {children}
       </body>

@@ -41,9 +41,9 @@ export function Navbar({
             onClick={onMenuClick}
             className="w-12 h-12 glass-morphism rounded-xl flex flex-col items-center justify-center gap-1.5 hover:bg-white/60 transition-all active:scale-95 group shadow-sm border-white/60"
           >
-            <div className="h-[2px] w-6 bg-[#1A1C1E] group-hover:bg-[#FF5252] transition-colors rounded-full"></div>
-            <div className="h-[2px] w-4 bg-[#1A1C1E] group-hover:bg-[#FF5252] transition-colors rounded-full ml-auto mr-3"></div>
-            <div className="h-[2px] w-6 bg-[#1A1C1E] group-hover:bg-[#FF5252] transition-colors rounded-full"></div>
+            <div className="h-[2px] w-6 bg-[#1A1C1E] group-hover:bg-[#D4325C] transition-colors rounded-full"></div>
+            <div className="h-[2px] w-4 bg-[#1A1C1E] group-hover:bg-[#D4325C] transition-colors rounded-full ml-auto mr-3"></div>
+            <div className="h-[2px] w-6 bg-[#1A1C1E] group-hover:bg-[#D4325C] transition-colors rounded-full"></div>
           </button>
         </div>
 
@@ -57,7 +57,7 @@ export function Navbar({
                 alt="AM Ford Logo"
               />
             </div>
-            <span className="text-[#1A1C1E] font-black text-xl tracking-tighter uppercase group-hover:text-[#FF5252] transition-colors whitespace-nowrap">User Management</span>
+            <span className="text-[#1A1C1E] font-black text-xl tracking-tighter uppercase group-hover:text-[#D4325C] transition-colors whitespace-nowrap">User Management</span>
           </Link>
         </div>
 
@@ -68,7 +68,7 @@ export function Navbar({
               type="text"
               placeholder="SEARCH STAGES..."
               onChange={(e) => onSearch?.(e.target.value)}
-              className="glass-morphism rounded-xl px-5 py-2.5 text-[10px] uppercase font-black tracking-widest text-[#1A1C1E] placeholder-gray-400 w-56 focus:outline-none focus:ring-2 focus:ring-[#FF5252]/20 focus:border-[#FF5252]/50 transition-all border-white/60 shadow-inner"
+              className="glass-morphism rounded-xl px-5 py-2.5 text-[10px] uppercase font-black tracking-widest text-[#1A1C1E] placeholder-gray-400 w-56 focus:outline-none focus:ring-2 focus:ring-[#D4325C]/20 focus:border-[#D4325C]/50 transition-all border-white/60 shadow-inner"
             />
             <svg className="w-4 h-4 text-gray-400 absolute right-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -77,7 +77,7 @@ export function Navbar({
 
           <button
             onClick={onIntakeClick}
-            className="bg-[#1A1C1E] hover:bg-[#FF5252] rounded-xl px-8 py-3 text-white text-[11px] font-black tracking-[0.3em] uppercase transition-all shadow-xl hover:shadow-[#FF5252]/20 active:scale-95"
+            className="bg-[#1A1C1E] hover:bg-[#D4325C] rounded-xl px-8 py-3 text-white text-[11px] font-black tracking-[0.3em] uppercase transition-all shadow-xl hover:shadow-[#D4325C]/20 active:scale-95"
           >
             INTAKE
           </button>
@@ -86,9 +86,9 @@ export function Navbar({
           <div className="relative">
             <button 
               onClick={() => setIsProfileOpen(!isProfileOpen)}
-              className={`flex items-center gap-2 w-12 h-12 glass-morphism rounded-xl items-center justify-center hover:bg-white/60 transition-all border-white/60 shadow-sm ${isProfileOpen ? 'ring-2 ring-[#FF5252]/50 border-transparent shadow-lg shadow-[#FF5252]/10' : ''}`}
+              className={`flex items-center gap-2 w-12 h-12 glass-morphism rounded-xl items-center justify-center hover:bg-white/60 transition-all border-white/60 shadow-sm ${isProfileOpen ? 'ring-2 ring-[#D4325C]/50 border-transparent shadow-lg shadow-[#D4325C]/10' : ''}`}
             >
-              <User className={`w-5 h-5 transition-colors ${isProfileOpen ? 'text-[#FF5252]' : 'text-[#1A1C1E]'}`} />
+              <User className={`w-5 h-5 transition-colors ${isProfileOpen ? 'text-[#D4325C]' : 'text-[#1A1C1E]'}`} />
             </button>
 
             {isProfileOpen && (
