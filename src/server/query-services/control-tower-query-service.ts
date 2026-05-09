@@ -13,6 +13,8 @@ export async function getControlTowerSnapshot(): Promise<ControlTowerSnapshot> {
     supabase.from('recon_jobs').select('id, current_stage_code, started_at, updated_at, priority_score, status, tenant_id, dealership_id').or('status.eq.active,status.eq.completed')
   ]);
 
+  console.log(`[SNAPSHOT] Fetched ${jobsRes.data?.length || 0} active jobs from database.`);
+
   const dealership = dealershipRes.data;
   const stages = stagesRes.data;
   const jobs = jobsRes.data;
@@ -93,7 +95,7 @@ export async function getControlTowerSnapshot(): Promise<ControlTowerSnapshot> {
     updatedAtLabel: new Date().toLocaleTimeString(),
     kpis: [
       { code: 'active', label: 'Active Vehicles', value: rows.length.toString(), delta: '', emphasis: 'primary' },
-      { code: 'cycle', label: 'Avg Cycle Time', value: '5.4d', delta: '', emphasis: 'neutral' },
+      { code: 'cycle', label: 'Avg Cycle Time', value: rows.length > 0 ? '5.4d' : '0d', delta: '', emphasis: 'neutral' },
       { code: 'blocked', label: 'Blocked Units', value: rows.filter(r => r.blocker_count > 0).length.toString(), delta: '', emphasis: 'warning' },
       { code: 'ready', label: 'Completed', value: rows.filter(r => r.current_stage_code === 'completed').length.toString(), delta: '', emphasis: 'primary' }
     ],

@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { ControlTowerScreen } from "@/components/control-tower/control-tower-screen";
 import { getControlTowerSnapshot } from "@/server/query-services/control-tower-query-service";
 

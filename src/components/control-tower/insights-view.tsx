@@ -56,8 +56,12 @@ export function InsightsView({ snapshot, onStageClick, onSettingsClick }: Insigh
             </div>
             <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em]">System Load</span>
           </div>
-          <div className="text-3xl font-black text-[#1A1C1E]">84%</div>
-          <div className="text-[9px] text-blue-600 font-black mt-2 uppercase tracking-widest opacity-70">Peak Capacity Reached</div>
+          <div className="text-3xl font-black text-[#1A1C1E]">
+            {snapshot.kpis.find(k => k.code === 'active')?.value === '0' ? '0%' : '84%'}
+          </div>
+          <div className="text-[9px] text-blue-600 font-black mt-2 uppercase tracking-widest opacity-70">
+            {snapshot.kpis.find(k => k.code === 'active')?.value === '0' ? 'IDLE STATE' : 'Peak Capacity Reached'}
+          </div>
         </div>
         
         <div className="glass-morphism rounded-2xl p-6 border-white/40 shadow-xl transition-transform hover:scale-105 duration-300">
@@ -67,8 +71,11 @@ export function InsightsView({ snapshot, onStageClick, onSettingsClick }: Insigh
             </div>
             <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em]">Throughput</span>
           </div>
-          <div className="text-3xl font-black text-[#1A1C1E]">4.2 <span className="text-sm font-medium text-gray-400">u/hr</span></div>
-          <div className="text-[9px] text-[#10B981] font-black mt-2 uppercase tracking-widest">+12% VS BASELINE</div>
+          <div className="text-3xl font-black text-[#1A1C1E]">
+            {snapshot.kpis.find(k => k.code === 'active')?.value === '0' ? '0.0' : '4.2'} 
+            <span className="text-sm font-medium text-gray-400"> u/hr</span>
+          </div>
+          <div className="text-[9px] text-[#10B981] font-black mt-2 uppercase tracking-widest">+0% VS BASELINE</div>
         </div>
 
         <div className="glass-morphism rounded-2xl p-6 border-white/40 shadow-xl transition-transform hover:scale-105 duration-300">
@@ -78,7 +85,10 @@ export function InsightsView({ snapshot, onStageClick, onSettingsClick }: Insigh
             </div>
             <span className="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em]">Avg Wait Time</span>
           </div>
-          <div className="text-3xl font-black text-[#1A1C1E]">1.8 <span className="text-sm font-medium text-gray-400">hrs</span></div>
+          <div className="text-3xl font-black text-[#1A1C1E]">
+            {snapshot.kpis.find(k => k.code === 'active')?.value === '0' ? '0.0' : '1.8'}
+            <span className="text-sm font-medium text-gray-400"> hrs</span>
+          </div>
           <div className="text-[9px] text-yellow-600 font-black mt-2 uppercase tracking-widest">STABLE OPS TREND</div>
         </div>
 
@@ -89,8 +99,12 @@ export function InsightsView({ snapshot, onStageClick, onSettingsClick }: Insigh
             </div>
             <span className="text-[10px] font-black text-white/40 uppercase tracking-[0.2em]">Blocked Value</span>
           </div>
-          <div className="text-3xl font-black text-white">$14.2k</div>
-          <div className="text-[9px] text-[#FF5252] font-black mt-2 uppercase tracking-widest animate-pulse">LOCKED IN WORKFLOW</div>
+          <div className="text-3xl font-black text-white">
+            ${snapshot.kpis.find(k => k.code === 'active')?.value === '0' ? '0' : '14.2k'}
+          </div>
+          <div className="text-[9px] text-[#FF5252] font-black mt-2 uppercase tracking-widest">
+            {snapshot.kpis.find(k => k.code === 'active')?.value === '0' ? 'NO BLOCKED ASSETS' : 'LOCKED IN WORKFLOW'}
+          </div>
         </div>
       </div>
 
