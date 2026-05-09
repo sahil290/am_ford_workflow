@@ -27,9 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${bodyFont.variable} ${displayFont.variable} min-h-screen bg-[var(--bg)] font-sans text-[var(--text-primary)] antialiased`}
+        suppressHydrationWarning
       >
         <NextTopLoader 
           color="#FF5252"

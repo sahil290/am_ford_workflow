@@ -12,8 +12,10 @@ export function OpsShell({ children }: OpsShellProps) {
   const router = useRouter();
   const pathname = usePathname();
   const [isAuthorized, setIsAuthorized] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const userJson = localStorage.getItem('recon_user');
     if (!userJson && pathname !== '/login') {
       router.push('/login');
@@ -22,7 +24,7 @@ export function OpsShell({ children }: OpsShellProps) {
     }
   }, [router, pathname]);
 
-  if (!isAuthorized && pathname !== '/login') {
+  if ((!mounted || !isAuthorized) && pathname !== '/login') {
     return (
       <div className="h-screen bg-[#F8F8F8] relative overflow-hidden flex items-center justify-center">
         {/* Background Accents */}

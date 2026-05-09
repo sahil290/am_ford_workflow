@@ -51,8 +51,10 @@ export function ControlTowerScreen({ snapshot: initialSnapshot, initialViewMode 
   const [user, setUser] = useState<any>(null);
   const [refreshKey, setRefreshKey] = useState(0);
   const [lastDeletedId, setLastDeletedId] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const userJson = localStorage.getItem('recon_user');
     if (userJson) setUser(JSON.parse(userJson));
   }, []);
@@ -212,6 +214,8 @@ export function ControlTowerScreen({ snapshot: initialSnapshot, initialViewMode 
     // 3. If showEmptyDepts is false, only show groups with actual vehicles
     return group.rows.some(row => row.vehicles > 0);
   });
+
+  if (!mounted) return null;
 
   return (
     <OpsShell>

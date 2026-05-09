@@ -31,13 +31,16 @@ export function Sidebar({ isOpen, onClose, onSettingsClick, onNavigate, currentV
   const pathname = usePathname();
   const router = useRouter();
   const [isWorkshopOpen, setIsWorkshopOpen] = useState(true);
-
-  const [user, setUser] = React.useState<any>(null);
+  const [mounted, setMounted] = useState(false);
+  const [user, setUser] = useState<any>(null);
 
   React.useEffect(() => {
+    setMounted(true);
     const userJson = localStorage.getItem('recon_user');
     if (userJson) setUser(JSON.parse(userJson));
   }, []);
+
+  if (!mounted) return null;
 
   const isAdmin = user?.role === 'admin';
   const isManager = user?.role === 'manager';

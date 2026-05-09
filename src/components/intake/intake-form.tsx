@@ -103,9 +103,9 @@ export function IntakeForm({ onSuccess, onCancel }: { onSuccess?: () => void, on
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 bg-white">
-      <div className="grid grid-cols-2 gap-x-5 gap-y-3.5">
-        <div className="space-y-1">
+    <form onSubmit={handleSubmit} className="space-y-3 bg-white">
+      <div className="grid grid-cols-2 gap-x-4 gap-y-2.5">
+        <div className="space-y-0.5">
           <label className="block text-[8px] font-black text-[#1A1C1E] uppercase tracking-[0.1em] ml-1 opacity-50">Stock Number</label>
           <input
             type="text"
@@ -113,15 +113,15 @@ export function IntakeForm({ onSuccess, onCancel }: { onSuccess?: () => void, on
             value={formData.stockNumber}
             onChange={handleInputChange}
             className={cn(
-              "w-full command-input uppercase tracking-[0.2em]",
+              "w-full command-input py-2 uppercase tracking-[0.2em]",
               errors.stockNumber && "border-[#FF5252] bg-red-50"
             )}
             placeholder="E.G. A25182"
           />
-          {errors.stockNumber && <p className="text-[9px] text-[#FF5252] ml-2 font-black uppercase tracking-widest">{errors.stockNumber}</p>}
+          {errors.stockNumber && <p className="text-[8px] text-[#FF5252] ml-2 font-black uppercase tracking-widest">{errors.stockNumber}</p>}
         </div>
 
-        <div className="space-y-1">
+        <div className="space-y-0.5">
           <label className="block text-[8px] font-black text-[#1A1C1E] uppercase tracking-[0.1em] ml-1 opacity-50">Asset Year</label>
           <input
             type="text"
@@ -129,26 +129,39 @@ export function IntakeForm({ onSuccess, onCancel }: { onSuccess?: () => void, on
             value={formData.year}
             onChange={handleInputChange}
             className={cn(
-              "w-full command-input",
+              "w-full command-input py-2",
               errors.year && "border-[#FF5252] bg-red-50"
             )}
             placeholder="2024"
           />
         </div>
 
-        <div className="space-y-1">
-          <label className="block text-[8px] font-black text-[#1A1C1E] uppercase tracking-[0.1em] ml-1 opacity-50">Make</label>
-          <input
-            type="text"
+        <div className="space-y-0.5">
+          <label className="block text-[8px] font-black text-[#1A1C1E] uppercase tracking-[0.1em] ml-1 opacity-50">Asset Make</label>
+          <select
             name="make"
             value={formData.make}
             onChange={handleInputChange}
-            className="w-full command-input"
-            placeholder="Ford"
-          />
+            className="w-full command-input py-2 appearance-none cursor-pointer"
+          >
+            <option value="Ford">Ford</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Honda">Honda</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Kia">Kia</option>
+            <option value="Maruti Suzuki">Maruti Suzuki</option>
+            <option value="Mahindra">Mahindra</option>
+            <option value="Tata">Tata</option>
+            <option value="BMW">BMW</option>
+            <option value="Mercedes-Benz">Mercedes-Benz</option>
+            <option value="Audi">Audi</option>
+            <option value="Volkswagen">Volkswagen</option>
+            <option value="MG">MG</option>
+            <option value="Others">Others</option>
+          </select>
         </div>
 
-        <div className="space-y-1">
+        <div className="space-y-0.5">
           <label className="block text-[8px] font-black text-[#1A1C1E] uppercase tracking-[0.1em] ml-1 opacity-50">Model Name</label>
           <input
             type="text"
@@ -156,20 +169,20 @@ export function IntakeForm({ onSuccess, onCancel }: { onSuccess?: () => void, on
             value={formData.model}
             onChange={handleInputChange}
             className={cn(
-              "w-full command-input",
+              "w-full command-input py-2",
               errors.model && "border-[#FF5252] bg-red-50"
             )}
             placeholder="Explorer"
           />
         </div>
 
-        <div className="space-y-1">
+        <div className="space-y-0.5">
           <label className="block text-[8px] font-black text-[#1A1C1E] uppercase tracking-[0.1em] ml-1 opacity-50">Acquisition Source</label>
           <select
             name="source"
             value={formData.source}
             onChange={handleInputChange}
-            className="w-full command-input appearance-none cursor-pointer"
+            className="w-full command-input py-2 appearance-none cursor-pointer"
           >
             <option value="Trade">Customer Trade</option>
             <option value="Auction">Direct Auction</option>
@@ -178,32 +191,32 @@ export function IntakeForm({ onSuccess, onCancel }: { onSuccess?: () => void, on
           </select>
         </div>
 
-        <div className="space-y-1">
+        <div className="space-y-0.5">
           <label className="block text-[8px] font-black text-[#1A1C1E] uppercase tracking-[0.1em] ml-1 opacity-50">Current Mileage</label>
           <input
             type="text"
             name="mileage"
             value={formData.mileage}
             onChange={handleInputChange}
-            className="w-full command-input"
+            className="w-full command-input py-2"
             placeholder="0"
           />
         </div>
       </div>
 
-      <div className="space-y-1">
+      <div className="space-y-0.5">
         <label className="block text-[8px] font-black text-[#1A1C1E] uppercase tracking-[0.1em] ml-1 opacity-50">Internal Comments</label>
         <textarea
           name="comments"
           value={formData.comments}
           onChange={handleInputChange}
-          rows={3}
-          className="w-full command-input py-3 resize-none"
+          rows={2}
+          className="w-full command-input py-2 resize-none"
           placeholder="ENTER INITIAL VEHICLE CONDITION OR SPECIAL INSTRUCTIONS..."
         />
       </div>
 
-      <div className="flex items-end justify-between pt-5 border-t border-white/20">
+      <div className="flex items-center justify-between pt-3 border-t border-white/20">
         <div className="space-y-2.5">
           <label className="block text-[8px] font-black text-[#1A1C1E] uppercase tracking-[0.1em] ml-1 opacity-50">Pictures Logged?</label>
           <div className="flex gap-2">

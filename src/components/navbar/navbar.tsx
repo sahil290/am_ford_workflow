@@ -14,14 +14,18 @@ export function Navbar({
   onMenuClick?: () => void;
 }) {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
+    setMounted(true);
     const userJson = localStorage.getItem('recon_user');
     if (userJson) {
       setUser(JSON.parse(userJson));
     }
   }, []);
+
+  if (!mounted) return null;
 
   const handleLogout = () => {
     localStorage.removeItem('recon_user');
