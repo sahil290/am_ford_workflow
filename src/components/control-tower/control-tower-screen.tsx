@@ -598,9 +598,10 @@ function StageRow({
           {row.code !== 'completed' && (
             <div className="text-right">
               <span className={`text-xs font-black ${isExpanded ? "text-white" : "text-blue-600"}`}>
-                {row.targetHours < 1 ? `${Math.round(row.targetHours * 60)}m` :
-                  row.targetHours >= 24 ? `${Math.floor(row.targetHours / 24)}d` :
-                    `${row.targetHours}h`}
+                {row.targetHours >= 24 ? `${Math.floor(row.targetHours / 24)}d` :
+                  row.targetHours >= 1 
+                    ? `${Math.floor(row.targetHours)}h${Math.round((row.targetHours % 1) * 60) > 0 ? ` ${Math.round((row.targetHours % 1) * 60)}m` : ''}`
+                    : `${Math.round(row.targetHours * 60)}m`}
               </span>
               <div className={`text-[8px] uppercase tracking-[0.2em] font-black mt-0.5 ${isExpanded ? "text-white/60" : "text-gray-400"}`}>PLANNED</div>
             </div>
