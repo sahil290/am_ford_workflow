@@ -1,0 +1,5 @@
+src/modules/notifications/application/notification-manager.ts(179,37): error TS2339: Property 'sendVehicleReady' does not exist on type 'SMSService'.
+src/modules/notifications/application/notification-manager.ts(182,37): error TS2339: Property 'sendPartsDelay' does not exist on type 'SMSService'.
+src/modules/notifications/application/notification-manager.ts(221,41): error TS2345: Argument of type '{ userId: string; name: string; phone: string; role: string; notifications: NotificationType[]; }' is not assignable to parameter of type '{ userId: string; name: string; phone: string; role: "general_manager" | "service_manager" | "parts_manager" | "detail_manager" | "recon_manager"; notifications: NotificationType[]; }'.
+  Types of property 'role' are incompatible.
+    Type 'string' is not assignable to type '"general_manager" | "service_manager" | "parts_manager" | "detail_manager" | "recon_manager"'.
