@@ -127,6 +127,8 @@ export function Sidebar({ isOpen, onClose, onSettingsClick, onNavigate, currentV
                       <Link
                         key={item.label}
                         href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         onClick={onClose}
                         className={`flex items-center gap-3 px-5 py-3 rounded-xl transition-all group cursor-pointer relative overflow-hidden ${active
                           ? 'bg-[#D4325C] text-white shadow-lg'
@@ -149,6 +151,8 @@ export function Sidebar({ isOpen, onClose, onSettingsClick, onNavigate, currentV
                 const active = isItemActive(item.href);
                 return (
                   <Link
+                    target="_blank"
+                    rel="noopener noreferrer"
                     key={item.label}
                     href={item.href}
                     onClick={onClose}
